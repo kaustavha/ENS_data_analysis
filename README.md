@@ -11,19 +11,6 @@ We can use this tool to visualize the economic disparity of domain name purchase
 Detect hoarders of domain names, thus perhaps busting unscrupoulous founders with multiple projects that dont progress but act more for marketing their brand. 
 Alternatively we can reward good founder, this provides a positive data point showing duration of engagement in this ecosystem. 
 
-prizeAttempts: {
-	nth place overall
-
-	Fintech -> Uses and monitors blockchain events, attempts to keep ENS domain prices steady and stable and can potentially be used to monitor larger instances of fraud or malicious activity on-chain. 
-
-	Diversity (sunlife) -> ENS allows individuals to bid on domains that would be monetarily out of their reach on the DNS. We can improve that experience and prolong cheap prices by tracking bad actors allowing a more diverse group to ideally hold important websites and names. Fixing 
-
-	Financial literacy -> With the cryptocurrency gold rush as it is, a lot of people will invest in and lose money in toxic ICOs. This can prevent that by adding an extra data point for potential novice investors. Additionally this re-introduces some due diligence that would be ignored by the founders since "the data is public on the blockchain", albeit hard to impossible to read. 
-
-	Best startup idea -> Monetization for analytics in this space is fairly simple since we can charge to monitor contracts that arent part of infrastructure, and additionally charge to store the results of these analysis in a distributed system and there;s a large demand for tools in this space due to the current lack thereof. 
-
-}
-
 This is an attempt to visualize and graph data coming in from the blockchain, specifically the ENS and it's bid reveal event. This is a minimal PoC which only looks at BidReveal event coming out of the unsealBid() function in ENS. 
 
 ## High level overview
