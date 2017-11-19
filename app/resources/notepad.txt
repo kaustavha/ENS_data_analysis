@@ -1,0 +1,81 @@
+"0x446b2242c8039f91da092497368ca6a8f824bc3e05ff53cb295c55d4da3d1a41"
+
+i = 22
+
+block = 4571602
+
+https://etherscan.io/tx/0x446b2242c8039f91da092497368ca6a8f824bc3e05ff53cb295c55d4da3d1a41
+
+etherscan seems to show 25-50txs per hr on avg
+
+https://ethereum.stackexchange.com/questions/16313/how-can-i-view-event-logs-for-an-ethereum-contract
+
+https://ethereum.stackexchange.com/questions/1990/what-is-the-ethereum-transaction-data-structure
+
+https://ethereum.stackexchange.com/questions/8547/how-to-explore-all-transactions-for-a-given-account
+
+// this is interesting, for production its better to mod geth
+https://ethereum.stackexchange.com/questions/3417/how-to-get-contract-internal-transactions
+
+
+listen for BidRevealed
+
+where it starts: 
+TxHash 0x40ea7c00f622a7c6699a0013a26e2399d0cd167f8565062a43eb962c6750f7db
+	Block	Age
+	3327417	252 days 15 hrs ago	
+	From													To	Value	[TxFee]
+	0x8a582c1a18f7d381bf707cf0b535533016221398	  IN  	 Contract Creation	0 Ether	0.00433382
+
+so ENS started almost a year ago
+earliest is 3327417
+latest sat nov 18/17 => 4574918
+
+12 hrs ago => 4571864
+
+
+
+30 mins: 
+4575537  4575662
+
+
+
+
+
+const filter = web3.eth.filter({fromBlock: 0, toBlock: 'latest', address: "0x6090A6e47849629b7245Dfa1Ca21D94cd15878Ef", topics: [web3.sha3('NewBid(bytes32,address,uint)')]})
+
+2017-11-18 16:20:27  Starting Parity/v1.8.3-beta-b49c44a-20171114/x86_64-macos/rustc1.21.0
+2017-11-18 16:20:27  Keys path /Users/kaustavhaldar/Library/Application Support/io.parity.ethereum/keys/Foundation
+2017-11-18 16:20:27  DB path /Users/kaustavhaldar/Library/Application Support/io.parity.ethereum/chains/ethereum/db/906a34e69aec8c0d
+2017-11-18 16:20:27  Path to dapps /Users/kaustavhaldar/Library/Application Support/io.parity.ethereum/dapps
+2017-11-18 16:20:27  State DB configuration: fast
+2017-11-18 16:20:27  Operating mode: passive
+2017-11-18 16:20:27  Configured for Foundation using Ethash engine
+2017-11-18 16:20:28  Updated conversion rate to Ξ1 = US$338.42 (351774750 wei/gas)
+2017-11-18 16:20:33  Public node URL: enode://9b858bfbfca53e1bfd35f22534d404518e430dbfd23ab3c4065b3d08a6433c455a2f11ee5e7349d7d0ae097b4e10f0d5b8fb6429b0159ac13d27c4bbb6f29cb8@129.100.132.114:30303
+
+INFO [11-18|17:36:57] IPC endpoint opened: /Users/kaustavhaldar/Library/Ethereum/geth.ipc
+INFO [11-18|17:36:57] HTTP endpoint opened: http://127.0.0.1:8545
+
+
+
+docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.0.0
+
+docker run --net=host -e "ELASTICSEARCH_URL=http://localhost:9200" -p 5601:5601 docker.elastic.co/kibana/kibana:6.0.0
+
+
+docker network create elastic
+docker run --network=elastic --name=elasticsearch docker.elastic.co/elasticsearch/elasticsearch-oss:6.0.0
+docker run --network=elastic -p 5601:5601 docker.elastic.co/kibana/kibana:6.0.0
+
+
+docker network create elastic
+docker run --network=host --name=elasticsearch docker.elastic.co/elasticsearch/elasticsearch-oss:6.0.0
+docker run --network=host  --name=kibana docker.elastic.co/kibana/kibana:6.0.0
+
+
+docker run -d -p http://127.0.0.1:9200 -p http://127.0.0.1:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.0.0
+
+docker run --link elastic:elastic-url -e ELASTICSEARCH_URL='http://127.0.0.1:9200' -p 127.0.0.1:5601 -d --name kibana docker.elastic.co/kibana/kibana:6.0.0
+
+docker run -
